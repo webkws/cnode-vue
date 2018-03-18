@@ -1,6 +1,7 @@
 # cnode
 
 > A Vue.js project
+>Vue + Vue-router + Vuex + axios + ES6 + Muse-UI
 
 ## Build Setup
 
