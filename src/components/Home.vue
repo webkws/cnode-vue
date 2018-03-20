@@ -1,18 +1,19 @@
 <template>
-  <div id="home">
+  <div id="home">    
     <Top/>
-
+    <TabBar/>
     <Bott/>
   </div>
 </template>
 
 <script>
 import Top from './common/Header'
+import TabBar from './common/TabBar'
 import Bott from './common/Footer'
 export default {
   name: 'home',
   components:{
-     Top, Bott     
+     Top, Bott, TabBar   
   },
   data () {
     return {

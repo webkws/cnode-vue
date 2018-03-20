@@ -4,6 +4,8 @@ import Home from '@/components/Home'
 import Person from '@/components/Person'
 import Publish from '@/components/Publish'
 import Msg from '@/components/Msg'
+import Content from '@/components/Content'
+import Other from '@/components/Other'
 
 Vue.use(Router)
 
@@ -29,7 +31,15 @@ export default new Router({
       name: 'publish',
       component: Publish
     },
-    
-
+    {
+      path: '/content',
+      name: 'content',
+      component: Content
+    },
+    {
+      path: '/other',
+      name: 'other',
+      component: Other
+    },
   ]
 })

@@ -19,16 +19,17 @@ export default {
   name: 'top',
   data () {
     return {
-      msg: ''
+      
     }
   }
 }
 </script>
-<style lang="scss" scoped>
-.title{
-    text-align: center;
-    img{
-        width: 10rem;
-    }
+<style>
+#top{
+  position: fixed;
+  width: 100%;
+  z-index: 1000;
+  top:0;left: 0;right: 0;
+  text-align: center;
 }
 </style>

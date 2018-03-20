@@ -1,11 +1,7 @@
 <template>
   <div id="person-info">
     <mu-appbar class="title-info" title="用户详情"></mu-appbar>
-    <section v-if="!isLogin" id="login-center">
-      <mu-text-field v-model="val" label="Access Token" :errorText="error" labelFloat/>
-      <mu-raised-button @click="handleLogin" label="登录" class="demo-raised-button" primary/>
-    </section>
-    <main v-if="isLogin">
+    <main>
       <!-- 个人信息 -->
       <img :src="user_msg.avatar_url" alt="user">
       <span class="name">{{user_msg.loginname}}</span>
@@ -71,39 +67,27 @@
       </section>
       <!-- 退出登录按钮 -->
         <mu-raised-button
-        @click="logout"
-        label="退出登录"
-        class="demo-raised-button"
-        icon="power_settings_new"
+        @click="goBack"
+        label=" 返 回"
+        class="demo-raised-button go-back-btn"
+        icon="arrow_back"
         primary/>
     </main>
-  <Bott/>
   </div>
 </template>
 
 <script>
 import timeago from 'timeago.js'
-import Bott from './common/Footer'
 export default {
-  name: 'person',
-  components:{
-    Bott
-  },
+  name: 'other',
   data () {
-    return {      
-      user: {},
-      user_msg: {},
-      val: 'bfe5b3a1-f196-4c42-946e-5c2a7dba7d80',
-      error: '',
-      isLogin:false,
-      token:''  
+    return {
+      loginname:this.$route.query.loginname, 
+      user_msg: {}
     }
   },
   created() {
-      if(localStorage.getItem('accesstoken')){  
-        this.isLogin=true;      
-        this.getUserData();
-      }
+        this.getUserData(); 
     },
     filters: {
         timeago(val) {
@@ -115,50 +99,25 @@ export default {
     methods: {
         getUserData(){
             let self = this;
-            let paramUser = self.user.loginname? self.user.loginname:localStorage.getItem('loginname');  
-            this.axios.get('https://cnodejs.org/api/v1/user/' + paramUser)
+            this.axios.get('https://cnodejs.org/api/v1/user/' + self.loginname)
                 .then(function(res) {
                   console.log(res);
                     self.user_msg = res.data.data                    
-                })            
-            this.axios.get('https://cnodejs.org/api/v1/topic_collect/' + paramUser)
+                })
+            this.axios.get('https://cnodejs.org/api/v1/topic_collect/' + self.loginname)
                 .then(function(res) {                                      
                     self.$set(self.user_msg,'collect_topics',res.data.data)                    
                 })
         },
-        logout(){
-            localStorage.removeItem('accesstoken')
-            localStorage.removeItem('user_id')
-            localStorage.removeItem('loginname')
-            this.isLogin=false;
-        },
-        handleLogin(){
-            let self = this;
-            this.axios.post('https://cnodejs.org/api/v1/accesstoken', {
-                  accesstoken: self.val
-              })
-              .then(function(res) {
-                  if(res.data.success){
-                    console.log(res)
-                    self.error = '';
-                    localStorage.setItem('accesstoken', self.val);
-                    localStorage.setItem('user_id', res.data.id);
-                    localStorage.setItem('loginname', res.data.loginname); 
-                    self.isLogin = true;
-                    self.user = res.data;
-                    self.getUserData();
-                  }                                          
-              })
-              .catch(function(error) {
-                  self.error = '输入错误，请重新输入'                  
-              })
+        goBack(){
+            this.$router.go(-1)
         }
     }
 }
 </script>
 
 <style lang="scss" scoped>
-#login-center{
+#login-center{  
     flex: 1;
     margin: 5rem 0;
     display: flex;
@@ -232,8 +191,8 @@ main>img {
 .icon {
     color: #009688;
 }
-.log-out{
-  margin-top: 2rem;
+.go-back-btn{
+  margin-top: 3rem;
 }
 </style>
 
