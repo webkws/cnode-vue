@@ -2,7 +2,9 @@
   <div id="top">
     <mu-appbar class="title">
         <mu-icon-button slot="left">
-            <img src="@/assets/cnodejs_light.svg">
+            <div class="svg-title">
+              <img src="@/assets/cnodejs_light.svg">
+            </div>
         </mu-icon-button>        
         <mu-icon-menu icon="expand_more" slot="right">
           <mu-menu-item title="主题"/>
@@ -31,5 +33,8 @@ export default {
   z-index: 1000;
   top:0;left: 0;right: 0;
   text-align: center;
+}
+.svg-title{
+  width: 10rem;
 }
 </style>

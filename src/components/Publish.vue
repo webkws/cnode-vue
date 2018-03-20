@@ -12,8 +12,8 @@
         </main>
         <mu-dialog :open="!accesstoken" title="提示：">
             请先登录
-            <mu-flat-button slot="actions" primary to="/vuecommunitytest" label="取消" />
-            <mu-flat-button slot="actions" primary to="/vuecommunitytest/login" label="确定" />
+            <mu-flat-button slot="actions" primary to="/" label="取消" />
+            <mu-flat-button slot="actions" primary to="/person" label="确定" />
         </mu-dialog>
         <mu-dialog :open="publish" title="提示：">
             {{tips}}

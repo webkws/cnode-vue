@@ -172,7 +172,7 @@ export default {
 }
 .title-info {
     text-align: center;
-    height: 4rem;
+    height: 3.8rem;
 }
 .wrapper {
     display: flex;
