@@ -293,8 +293,8 @@ export default {
 .wrapper {
     display: flex;
     flex-direction: column;
-    height: 100vh;
-    overflow-scrolling: touch;
+    height: 100vh;    
+    position: relative;
 }
 
 .title-content {
@@ -303,11 +303,14 @@ export default {
     top: 0;
     left: 0;
     right: 0;
-    z-index: 1;
+    z-index: 1000;
+    text-align: center;
 }
 
 .main {
     margin-top: 3.8rem;
+    overflow: auto;
+    -webkit-overflow-scrolling: touch;
 }
 
 .tag {

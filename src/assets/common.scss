@@ -129,6 +129,9 @@ textarea:focus {
    http://css-tricks.com/inheriting-box-sizing-probably-slightly-better-best-practice/ */
 html {
   box-sizing: border-box;
+  overflow-y: scroll;font-size: 10px;
+  background-color:#f8f8f8;
+  
 }
 
 *,
@@ -148,10 +151,6 @@ embed {
   max-width: 100%;
 }
 
-/* force a vertical scrollbar to prevent a jumpy page */
-html {
-  overflow-y: scroll;
-}
 
 /* we use a lot of ULs that aren't bulleted.
     don't forget to restore the bullets within content. */
@@ -242,13 +241,6 @@ input[type="checkbox"] {
   vertical-align: bottom;
 }
 
-.ie7 input[type="checkbox"] {
-  vertical-align: baseline;
-}
-
-.ie6 input {
-  vertical-align: text-bottom;
-}
 
 select,
 input,
@@ -323,13 +315,3 @@ input[type=button] {
   width: auto;
   overflow: visible;
 }
-
-/* scale images in IE7 more attractively */
-.ie7 img {
-  -ms-interpolation-mode: bicubic;
-}
-
-/* prevent BG image flicker upon hover
-   (commented out as usage is rare, and the filter syntax messes with some pre-processors)
-.ie6 html {filter: expression(document.execCommand("BackgroundImageCache", false, true));}
-*/

@@ -125,8 +125,7 @@ export default {
   position: fixed;
   width: 100%;
   top:0;left: 0;
-  margin-top: 56px;
-  border-top: 1px solid red;
+  margin-top: 56px;  
 }
 .mu-tab-link,.mu-tab-active{
     white-space: nowrap;

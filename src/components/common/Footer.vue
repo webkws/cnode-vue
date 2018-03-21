@@ -32,9 +32,9 @@ export default {
 }
 </script>
 <style lang="scss" scoped>
-#bott > *{
+#bott{
   position:fixed;bottom:0;width:100%;
-  left: 0;right: 0;
+  left: 0;right: 0;z-index: 1000;
 }
 
 </style>

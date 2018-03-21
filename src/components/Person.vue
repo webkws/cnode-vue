@@ -161,6 +161,7 @@ export default {
 #login-center{
     flex: 1;
     margin: 5rem 0;
+    background-color: #f8f8f8;
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -180,7 +181,7 @@ export default {
 }
 main {
     flex: 1;
-    margin: 5rem 0;
+    // margin: 5rem 0;
     display: flex;
     flex-direction: column;
     align-items: center;

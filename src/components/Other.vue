@@ -138,8 +138,7 @@ export default {
     flex-direction: column;
 }
 main {
-    flex: 1;
-    margin: 5rem 0;
+    flex: 1;    
     display: flex;
     flex-direction: column;
     align-items: center;

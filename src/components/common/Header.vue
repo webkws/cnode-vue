@@ -1,11 +1,9 @@
 <template>
   <div id="top">
     <mu-appbar class="title">
-        <mu-icon-button slot="left">
-            <div class="svg-title">
-              <img src="@/assets/cnodejs_light.svg">
-            </div>
-        </mu-icon-button>        
+        <div class="svg-title">
+          <img src="@/assets/cnodejs_light.svg">
+        </div>     
         <mu-icon-menu icon="expand_more" slot="right">
           <mu-menu-item title="主题"/>
           <mu-menu-item title="回复"/>
@@ -26,7 +24,7 @@ export default {
   }
 }
 </script>
-<style>
+<style lang="scss">
 #top{
   position: fixed;
   width: 100%;
@@ -34,7 +32,7 @@ export default {
   top:0;left: 0;right: 0;
   text-align: center;
 }
-.svg-title{
-  width: 10rem;
+.svg-title{  
+  width:10rem;padding-top: 1rem;
 }
 </style>
